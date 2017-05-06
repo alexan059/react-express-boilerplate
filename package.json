@@ -2,6 +2,9 @@
   "name": "react-express-boilertplate",
   "version": "1.0.0",
   "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
