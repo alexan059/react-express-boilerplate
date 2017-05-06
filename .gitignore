@@ -1,0 +1,8 @@
+Thumbs.db
+.idea/
+*.DS_Store
+logs/
+*.log
+bower_components/
+node_modules/
+.env
