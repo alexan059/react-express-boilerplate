@@ -1,14 +1,14 @@
 # React Express Boilerplate
 
-Simple and light starter kit for React + Express using Webpack 2.
+Simple and light starter kit for React + Express development using Webpack 2.
 
 ## Features
 
-- [X] Webpack hot reload
+- [X] Webpack live reload / hot replacement
 - [X] Client-side ES2015 development
 - [X] React compiler
 - [X] Express web server
 - [X] Sass
-- [ ] Eslint
+- [ ] ESlint
 - [ ] Testing environment
 - [ ] Production build configuration

@@ -29,7 +29,7 @@ module.exports = {
                     presets: ['es2015', 'react']
                 }
             },
-            // SASS
+            // Sass
             {
                 test: /\.(sass|scss)$/,
                 use: [
