@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'index': [
+        'app': [
             './client/index.js',
             // Hot Plugin
             'webpack-hot-middleware/client',
@@ -11,13 +11,14 @@ module.exports = {
         ]
     },
     output: {
-        path: path.resolve(__dirname, './public/js/'),
-        filename: 'bundle.js',
+        path: path.resolve(__dirname, './public/'),
+        filename: '[name].bundle.js',
         // Hot Plugin: the publicPath will set the files where the browser expects them
-        publicPath: 'http://localhost:3000/js/'
+        publicPath: 'http://localhost:3000/'
     },
     module: {
         rules: [
+            // React and ES2015
             {
                 test: /\.jsx?$/,
                 include: path.resolve(__dirname, './client'),
@@ -27,11 +28,20 @@ module.exports = {
                 options: {
                     presets: ['es2015', 'react']
                 }
+            },
+            // SASS
+            {
+                test: /\.(sass|scss)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     },
     resolve: {
-        extensions: ['.js']
+        extensions: ['.js', '.css','.scss']
     },
     plugins: [
         // Hot Plugin
