@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -12,7 +13,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './public/'),
-        filename: '[name].bundle.js',
+        filename: '[name]-[hash].bundle.js',
         // Hot Plugin: the publicPath will set the files where the browser expects them
         publicPath: 'http://localhost:3000/'
     },
@@ -37,6 +38,13 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            // HTML
+            {
+                test: /\.html$/,
+                use: [
+                    'html-loader'
+                ]
             }
         ]
     },
@@ -45,6 +53,10 @@ module.exports = {
     },
     plugins: [
         // Hot Plugin
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        // Inject HTML
+        new HtmlWebpackPlugin({
+            template: 'public/index.html'
+        })
     ]
 };
