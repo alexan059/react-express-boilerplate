@@ -1,11 +1,10 @@
-const path = require('path');
 const express = require('express');
-// const {app} = require('./server/server');
+const Server = require('./server/server');
 
 const port = process.env.PORT || 3000;
 const env = process.env.NODE_ENV || 'development';
 
-const app = express();
+const app = Server.app;
 
 if (env !== 'production') {
     const webpack = require('webpack');
@@ -17,20 +16,17 @@ if (env !== 'production') {
 
     app.use(webpackDevMiddleware(compiler, {
         noInfo: true,
+        quite: true,
+        stats: {
+            colors: true
+        },
         publicPath: webpackConfig.output.publicPath
     }));
     app.use(webpackHotMiddleware(compiler));
-
 }
 
-const indexPath = path.resolve(__dirname, './public/index.html');
-const publicPath = path.resolve(__dirname, './public');
-
-app.use(express.static(publicPath));
-
-app.get('*', (_, res) => {
-    res.sendFile(indexPath);
-});
+// Hot Plugin: Configure server AFTER environment setup
+Server.setupServer();
 
 app.listen(port, (err) => {
     if (err) {

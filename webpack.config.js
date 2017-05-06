@@ -13,7 +13,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './public/js/'),
         filename: 'bundle.js',
-        // Hot Plugin: The publicPath will set the files where the browser expects them
+        // Hot Plugin: the publicPath will set the files where the browser expects them
         publicPath: 'http://localhost:3000/js/'
     },
     module: {
@@ -23,7 +23,7 @@ module.exports = {
                 include: path.resolve(__dirname, './client'),
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                // Use options instead of .babelrc
+                // Hot Plugin: use options instead of .babelrc
                 options: {
                     presets: ['es2015', 'react']
                 }

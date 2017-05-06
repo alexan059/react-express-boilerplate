@@ -5,7 +5,7 @@ import App from './components/App';
 
 ReactDOM.render(<App/>, document.getElementById('app'));
 
-// Use react hot loader if enabled
+// Hot Plugin: react hot loader
 if (module.hot) {
     module.hot.accept();
 }
