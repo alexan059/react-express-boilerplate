@@ -7,8 +7,7 @@ module.exports = {
         'app': [
             './client/index.js',
             // Hot Plugin
-            'webpack-hot-middleware/client',
-            'webpack/hot/dev-server'
+            'webpack-hot-middleware/client'
         ]
     },
     output: {
